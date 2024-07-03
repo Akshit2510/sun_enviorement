@@ -1,0 +1,200 @@
+.navigation{
+    display: none;
+}
+
+
+.img{
+    position:relative;
+    margin-top: 5%;
+    left: 0;
+    right: 0;
+    width: 270px;
+    margin-top: 10%;
+
+}
+.logo{
+    font-size: 3rem;
+}
+.info{
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 40px;
+
+     
+    
+}
+
+.nav_img{
+    
+   width: 28px;
+   
+}
+
+.nav_link{
+    /* background-color: white; */
+    padding: 25px 13px;
+    padding-bottom: 8px;
+    border-radius: 30px;
+   
+}
+
+
+.nav_menu{
+    width: 100%;
+}
+
+
+ 
+
+.btn_style{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.hello{
+    font-size: 1.5rem;
+}
+.my_name{
+    font-size: 1.5rem;
+}
+.passion{
+    font-size: 1.3rem;
+}
+.p_info{
+    font-size: 1rem;
+}
+.name{
+    font-size: 2.8rem;
+}
+.btn{
+    font-size: 1rem;
+    
+}
+i{
+    font-size: 5px;
+}
+a{
+    margin: 0 0;
+    padding: 12px 8px ;
+}
+i{
+    font-size: 40px;
+}
+
+.home_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_contant{
+    display: block;
+}
+.contant h3{
+    font-size: 1.2rem;
+    
+}
+
+.about_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.p_about{
+    width: 100%;
+}
+
+.about_me h1{
+    font-size: 2rem;
+    text-decoration: underline;
+}
+
+.about_me h2{
+    font-size: 1rem;
+}
+
+.skill_container{
+    display: block;
+    
+    height: 100vh;
+    
+}
+
+
+#about{
+     
+    padding-top: 100px;
+}
+
+#education{
+    
+    padding-top: 100px;
+}
+
+.heading_name{
+    font-size: 3rem;
+}
+.heading_tital_name{
+    font-size: 2rem;
+    margin-bottom: 20px;
+     
+}
+.heading{
+    font-size: 1.6rem;
+    margin-top: 10px;
+}
+.social_icon{
+    
+    width: auto;
+  
+    padding-right: 20px;
+    
+
+    
+    
+}
+.social_icon img{
+    width:75px ;
+    margin: 0px -2px;
+     
+    
+}
+.email_contant{
+    
+    padding: 15px;
+}
+ 
+.email_contant a{
+    
+    font-size: 1.3rem;
+    
+   
+}
+.email{
+     
+    width: auto;
+   flex-direction: column;3
+   
+}
+
+.contant_percentange{
+     
+     width: 60%;
+     
+ }
+
+ .backend{
+    
+    height: 200px;
+    
+    
+
+}
+
+.social_media{
+     flex-direction: column;   
+}
+ 

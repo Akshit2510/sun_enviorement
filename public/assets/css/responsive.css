@@ -1,0 +1,378 @@
+@media only screen and (width > 1920px) {}
+
+@media (1200px <=width <=1399px) {}
+
+@media screen and (width <=1199px) {
+    .comn-title {
+        font-size: 40px;
+    }
+    .comn-title>span {
+        font-size: 16px;
+    }
+    header {
+        top: 15px;
+        padding: 0px 15px;
+    }
+    header .navbar-brand {
+        max-width: 200px;
+    }
+    header .navbar .navbar-nav {
+        gap: 25px;
+    }
+    .header-btn {
+        margin-left: 25px;
+    }
+    .header-btn,
+    header .navbar .navbar-nav .nav-link {
+        font-size: 14px;
+    }
+    header .navbar .navbar-nav .nav-link>span {
+        width: 8px;
+        height: 8px;
+    }
+    .banner-image-box {
+        height: 550px;
+    }
+    .banner-pattern-1 {
+        width: 100px;
+    }
+    .banner-pattern-2 {
+        width: 200px;
+    }
+    .banner-section .splide__pagination {
+        bottom: 15px;
+    }
+    .darshan-image-box {
+        height: 310px;
+    }
+    .activities-row-leftside .activities-data-box {
+        padding: 20px;
+    }
+    .activities-row-leftside .activities-data-box>aside {
+        font-size: 30px;
+    }
+    .activities-row-leftside .activities-data-box>p {
+        font-size: 24px;
+    }
+    .activities-data-box {
+        padding: 15px;
+    }
+    .activities-data-box>aside {
+        font-size: 24px;
+    }
+    .activities-data-box>p {
+        font-size: 18px;
+    }
+    .antar-image-box {
+        height: 170px;
+    }
+    footer {
+        padding: 40px 0px;
+    }
+    .footer-form-control-row {
+        width: 420px;
+    }
+    .footer-form-control-row button {
+        padding-inline: 20px;
+    }
+    .footer-aim-box {
+        width: 365px;
+    }
+    .navbar-nav .dropdown-menu li a i {
+        display: none;
+    }
+    .inner-dropdown-arrow {
+        display: flex;
+    }
+    .haridam-gallery-card a::before {
+        display: none;
+    }
+}
+
+@media screen and (width <=991px) {
+    .comn-padding {
+        padding: 80px 0px;
+    }
+    header {
+        top: 10px;
+        padding: 0px 10px;
+    }
+    header .navbar-collapse,
+    .navbar-toggler {
+        order: 1;
+    }
+    .navbar-toggler {
+        padding: 3px 6px;
+    }
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(99, 99, 99)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>');
+    }
+    header .navbar .navbar-nav {
+        gap: 15px;
+        margin-top: 15px;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+    }
+    .header-btn {
+        margin-left: auto;
+        margin-right: 15px;
+    }
+    .banner-image-box {
+        height: 480px;
+    }
+    .about-image-box {
+        text-align: center;
+    }
+    .about-data-box {
+        padding: 0;
+    }
+    .activities-row-leftside {
+        border-top-left-radius: 120px;
+        width: 40%;
+    }
+    .activities-row-leftside .activities-data-box {
+        padding: 15px;
+    }
+    .activities-row-rightside {
+        width: 60%;
+    }
+    .activities-data-box {
+        padding: 10px;
+    }
+    .activities-pattern {
+        width: 100px;
+    }
+    .antar-pattern {
+        display: none;
+    }
+    .antar-slider-box:not(:last-child) {
+        margin-bottom: 50px;
+    }
+    .antar-slider-box .comn-title,
+    .antar-rightside-box .comn-title {
+        font-size: 22px;
+    }
+    .antar-rightside-box {
+        padding-left: 0;
+    }
+    .antar-image-box {
+        height: 125px;
+    }
+    .parampara-row {
+        gap: 40px;
+    }
+    .footer-pattern-1 {
+        height: 50%;
+    }
+    .footer-top {
+        padding-bottom: 40px;
+    }
+    .footer-top>a {
+        max-width: 240px;
+    }
+    .footer-form-control-row {
+        width: 380px;
+    }
+    .footer-form-control-row button {
+        padding-inline: 10px 15px;
+    }
+    .footer-middle {
+        padding: 40px 0px;
+        gap: 50px;
+    }
+    .footer-aim-box {
+        width: 100%;
+    }
+    .footer-contact-box {
+        width: 50%;
+    }
+    .footer-link-box {
+        width: calc(50% - 50px);
+    }
+    .footer-foot {
+        justify-content: center;
+        padding-top: 30px;
+    }
+    .footer-foot>p {
+        text-align: center;
+    }
+    .foot-list li {
+        padding-right: 15px;
+    }
+    .inner-banner-section .banner-image-box {
+        height: 300px;
+    }
+    .soul-box {
+        padding: 40px;
+        max-width: 90%;
+        margin: -50px auto 0;
+    }
+    .navbar-nav .dropdown-menu {
+        padding: 0;
+        box-shadow: none;
+        border: 1px solid #dddddd;
+        border-radius: 10px;
+    }
+    .inner-dropdown .dropdown-menu {
+        margin: 10px auto 0;
+        width: 95%;
+    }
+    .video-card {
+        height: 350px;
+    }
+}
+
+@media screen and (width <=767px) {
+    .comn-padding {
+        padding: 60px 0px;
+    }
+    .comn-title {
+        font-size: 34px;
+        margin-bottom: 30px;
+        padding-left: 15px;
+        border-left: 2px solid var(--yellow-color);
+    }
+    header {
+        padding: 0px;
+        position: inherit;
+        transform: none;
+    }
+    header .navbar {
+        padding: 10px;
+        border-radius: 0;
+    }
+    .header-btn {
+        margin-right: 5px;
+    }
+    .banner-image-box {
+        height: 320px;
+    }
+    .banner-pattern-1 {
+        width: 70px;
+    }
+    .banner-pattern-2 {
+        width: 100px;
+    }
+    .banner-section .splide__pagination {
+        bottom: 10px;
+    }
+    .banner-section .splide__pagination__page {
+        width: 20px;
+        height: 2px;
+    }
+    .activities-row-leftside,
+    .activities-row-rightside {
+        width: 100%;
+    }
+    .activities-row-leftside .activities-data-box {
+        padding: 10px;
+    }
+    .activities-row-leftside .activities-data-box>aside {
+        font-size: 24px;
+    }
+    .activities-row-leftside .activities-data-box>p {
+        font-size: 18px;
+    }
+    .inner-banner-section .banner-image-box {
+        height: 200px;
+    }
+    .gujarati-text {
+        font-size: 16px;
+    }
+    .haridam-gallery-row {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        grid-gap: 15px;
+    }
+    .video-card {
+        height: 300px;
+    }
+}
+
+@media screen and (width <=575px) {
+    .splide__arrows {
+        position: initial;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    header .navbar-brand {
+        max-width: 140px;
+    }
+    .navbar-toggler {
+        padding: 1.5px 6px;
+    }
+    .header-btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+    .banner-image-box {
+        height: 200px;
+    }
+    .banner-pattern-1 {
+        width: 30px;
+    }
+    .banner-pattern-2 {
+        width: 60px;
+    }
+    .darshan-image-box {
+        height: 210px;
+    }
+    .activities-data-box .comn-btn {
+        font-size: 12px;
+        gap: 5px;
+        padding-right: 15px;
+    }
+    .activities-data-box .comn-btn>span {
+        width: 30px;
+        height: 30px;
+    }
+    .activities-data-box>aside {
+        font-size: 20px;
+    }
+    .activities-data-box>p {
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    .activities-pattern {
+        width: 70px;
+    }
+    .antar-image-box {
+        height: 140px;
+    }
+    .antar-rightside-box {
+        padding-left: 0;
+        margin-top: 50px;
+    }
+    .footer-form-control-row {
+        width: 100%;
+    }
+    .footer-contact-box,
+    .footer-link-box {
+        width: 100%;
+    }
+    .inner-banner-section .banner-image-box {
+        height: 140px;
+    }
+    .soul-box {
+        padding: 20px;
+        max-width: 100%;
+        margin-top: -20px;
+        border-radius: 10px;
+    }
+    .video-card {
+        height: 250px;
+    }
+    .aarti-box>p,
+    .aarti-box>span {
+        flex-basis: 100%;
+        text-align: left;
+    }
+}
+
+@media screen and (width <=320px) {
+    .header-btn {
+        font-size: 10px;
+    }
+}
