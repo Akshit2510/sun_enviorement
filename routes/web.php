@@ -11,6 +11,7 @@ use App\Http\Controllers\BannerImagesController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductSpecificationController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', [FrontController::class,'index'])->name('front.index');
 Route::get('/about-Us', [FrontController::class, 'about_Us'])->name('aboutUs');
@@ -33,6 +34,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::any('setting/edit',[SettingController::class, 'edit'])->name('setting.edit');
 
+    //product route
+    Route::resource('product', ProductController::class)->only(['create', 'index', 'edit', 'update', 'store', 'destroy']);
+    Route::get('productDatatable',[ProductController::class, 'productdata'])->name('productDatatable');
 
     //banner image route
     Route::get('bannerImages',[BannerImagesController::class, 'index'])->name('bannerImages.index');
