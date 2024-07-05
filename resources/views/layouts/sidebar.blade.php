@@ -77,7 +77,7 @@
                         <a href="{{route('category.index')}}"> Category </a>
                     </li>
                     <li>
-                        <a href="{{route('bannerImages.index')}}"> Product </a>
+                        <a href="{{route('product.index')}}"> Product </a>
                     </li>
                     <li>
                         <a href="{{route('product-specification.index')}}"> Product-Specufication </a>
