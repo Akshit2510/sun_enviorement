@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', [FrontController::class,'index'])->name('front.index');
 Route::get('/about-Us', [FrontController::class, 'about_Us'])->name('aboutUs');
 Route::get('/contact-Us', [FrontController::class, 'contact_us'])->name('contactUs');
-
+Route::post('/save/contact-Us', [FrontController::class, 'saveContactUs'])->name('save.contactUs');
 
 Auth::routes();
 

@@ -7,6 +7,8 @@ use App\Models\Home;
 use App\Models\aboutUs;
 use App\Models\News;
 use App\Models\newsletterSubscribe;
+use App\Models\Contact;
+use App\Http\Requests\StoreContactRequest;
 
 class FrontController extends Controller
 {
@@ -29,6 +31,18 @@ class FrontController extends Controller
     public function contact_us()
     {
         return view('front.contactUs');
+    }
+
+    public function saveContactUs(StoreContactRequest $request)
+    {
+        $contact = new Contact();
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->contact = $request->phone;
+        $contact->message = $request->message;
+        $contact->save();
+        return redirect()->back()->with('success', 'Your data has been save successfully.');
     }
 
 }
