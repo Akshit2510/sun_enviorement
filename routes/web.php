@@ -12,6 +12,7 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductSpecificationController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [FrontController::class,'index'])->name('front.index');
 Route::get('/about-Us', [FrontController::class, 'about_Us'])->name('aboutUs');
@@ -80,6 +81,10 @@ Route::group(['middleware' => 'auth'], function(){
     
     //about us route
     Route::resource('aboutUs', AboutUsController::class);
+    
+    //contact us route
+    Route::get('get-contact',[HomeController::class, 'getContactUs'])->name('contactus.get');
+    Route::get('post-contact',[HomeController::class, 'getContactData'])->name('contactus.post');
    
     //news route
     Route::resource('news', NewsController::class);
