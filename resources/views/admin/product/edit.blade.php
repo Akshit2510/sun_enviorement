@@ -13,7 +13,7 @@
     <!-- /BREADCRUMB -->
     <div class="row layout-top-spacing">
         @include('partial.message')
-        <div class="col-lg-12 col-12  layout-spacing">
+        <div class="col-lg-12 col-12 layout-spacing">
             <div class="statbox widget box box-shadow">
                 <div class="widget-content widget-content-area">
                     <form action="{{route('product.update',$product->id)}}" method="post" enctype="multipart/form-data">
@@ -21,6 +21,15 @@
                         @method('PUT')
                         <input type="hidden" name="id" value="{{ $product->id }}">
                         <input type="hidden" name="old_image" value="{{ $product->image }}">
+                        <div class="form-group mb-4">
+                            <label for="category">Category</label>
+                            <select class="form-control" name="category_id">
+                                <option>Select category</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected="selected" @endif>{{ $category->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="form-group mb-4">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" value="{{ $product->name }}">
@@ -40,18 +49,56 @@
                         <div class="form-group mb-4">
                             <label for="status">Status</label>
                             <select class="form-control" name="status">
-                                <option value="active" @if($product['status'] == 'active') selected="selected" @endif>Active</option>
-                                <option value="inactive" @if($product['status'] == 'inactive') selected="selected" @endif>Inactive</option>
+                                <option>Select status</option>
+                                <option value="active" @if($product->status == 'active') selected="selected" @endif>Active</option>
+                                <option value="inactive" @if($product->status == 'inactive') selected="selected" @endif>Inactive</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="availability">Availability</label>
+                            <select class="form-control" name="availability">
+                                <option>Select availability</option>
+                                <option value="instock" @if($product->availability == 'instock') selected="selected" @endif>In stock</option>
+                                <option value="outstock" @if($product->availability == 'outstock') selected="selected" @endif>Out stock</option>
                             </select>
                         </div>
                         <div class="form-group mb-4" id="imageUploadSection">
                             <label for="image">Select Image:</label>
-                            <input class="form-control file-upload-input imageInput mb-3" name="image" type="file" id="image" required>
+                            <input class="form-control file-upload-input imageInput mb-3" name="image" type="file" id="image">
                             <img class="imagePreview" class="d-none" alt="Preview Image" style="max-width: 200px; max-height: 200px;display:none;">
+                        </div>
+                        <div class="form-group mb-4" id="specificationSection">
+                            <div class="row">
+                                <div class="col-md-6 text-start">
+                                    <label for="specifications">Specifications</label>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                <button type="button" class="btn btn-primary text-end" id="addSpecification"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                            <div id="specificationContainer">
+                                @foreach($product->specifications as $index => $specification)
+                                <div class="row specificationRow mb-2">
+                                    <div class="col-md-5">
+                                        <select class="form-control" name="specifications[{{ $index }}][name]">
+                                            <option>Select specification</option>
+                                            @foreach($productSpecifications as $productSpecification)
+                                            <option value="{{ $productSpecification->id }}" @if($specification->id == $productSpecification->id) selected="selected" @endif>{{ $productSpecification->title }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" name="specifications[{{ $index }}][value]" placeholder="Enter value" value="{{ $specification->description }}">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="button" class="btn btn-danger removeSpecification"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
                         </div>
                         <input type="submit" value="Submit" name="time" class="btn btn-primary">
                         <a href="{{route('product.index')}}" name="Back" class="btn btn-primary">Back</a>
-
                     </form>
                 </div>
             </div>
@@ -86,7 +133,33 @@
                 };
                 reader.readAsDataURL(file);
             }
-        }); 
+        });
+
+        var specificationIndex = {{ $product->specifications->count() }};
+        $('#addSpecification').on('click', function() {
+            var newRow = `<div class="row specificationRow mb-2">
+                            <div class="col-md-5">
+                                <select class="form-control" name="specifications[${specificationIndex}][name]">
+                                    <option>Select specification</option>
+                                    @foreach($productSpecifications as $productSpecification)
+                                    <option value="{{ $productSpecification->id }}">{{ $productSpecification->title }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" name="specifications[${specificationIndex}][value]" placeholder="Enter value">
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-danger removeSpecification"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            </div>
+                        </div>`;
+            $('#specificationContainer').append(newRow);
+            specificationIndex++;
+        });
+
+        $(document).on('click', '.removeSpecification', function() {
+            $(this).closest('.specificationRow').remove();
+        });
     });
 </script>
 @endpush

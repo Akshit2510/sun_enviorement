@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Specification;
+use App\Models\ProductSpecification;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Session;
 
@@ -46,7 +49,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create');
+        $categories = Category::where('status','1')->get();
+        $productSpecifications = ProductSpecification::where('status','1')->get();
+        return view('admin.product.create',compact('categories','productSpecifications'));
     }
 
     /**
@@ -68,12 +73,29 @@ class ProductController extends Controller
             // Save the image path
             $imagePath = 'products/' . $imageName;
             $product->image=$imagePath;
+            $product->category_id=$request->category_id;
             $product->name=$request->name;
             $product->product_url=$request->product_url;
             $product->short_description=$request->short_description;
             $product->long_description=$request->long_description;
             $product->status=$request->status;
+            $product->availability=$request->availability;
             $product->save();
+
+            //product specification
+            $productSpecifications = [];
+            foreach ($request->specifications as $key => $value) {
+                $productSpecifications[] = [
+                    'product_id' => $product->id,
+                    'product_specification_id' => $value['name'],
+                    'description' => $value['value'],
+                ];
+            }
+
+            if(!empty($productSpecifications)){
+                Specification::insert($productSpecifications);
+            }
+            
             return redirect()->route('product.index')->with('flash_success', 'Record inserted successfully');
         }
         return redirect()->back()->with('flash_error','Opps, something wrong with uploading image.!');
@@ -92,8 +114,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        $product=Product::find($id);
-        return view('admin.product.edit',compact('product'));
+        $product = Product::with('specifications')->findOrFail($id);
+        $categories = Category::where('status','1')->get();
+        $productSpecifications = ProductSpecification::where('status','1')->get();
+        return view('admin.product.edit',compact('product','categories','productSpecifications'));
     }
 
     /**
@@ -125,9 +149,27 @@ class ProductController extends Controller
             'short_description'=>$request->short_description,
             'long_description'=>$request->long_description,
             'status'=>$request->status,
+            'category_id'=>$request->category_id,
+            'availability'=>$request->availability,
         );
 
         Product::where('id',$request->id)->update($update_data);
+
+        Specification::where('product_id',$request->id)->delete();
+
+        //product specification
+        $productSpecifications = [];
+        foreach ($request->specifications as $key => $value) {
+            $productSpecifications[] = [
+                'product_id' => $request->id,
+                'product_specification_id' => $value['name'],
+                'description' => $value['value'],
+            ];
+        }
+
+        if(!empty($productSpecifications)){
+            Specification::insert($productSpecifications);
+        }
         return redirect()->route('product.index')->with('flash_success', 'Record update successfully');
         
     }
