@@ -80,7 +80,7 @@
                         <a href="{{route('product.index')}}"> Product </a>
                     </li>
                     <li>
-                        <a href="{{route('product-specification.index')}}"> Product-Specufication </a>
+                        <a href="{{route('product-specification.index')}}"> Product-Specification </a>
                     </li>
                     <li>
                         <a href="{{route('bannerImages.index')}}"> Product-Rating </a>
