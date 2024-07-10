@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Jobs\NewsJob;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -83,6 +84,13 @@ class NewsController extends Controller
             if(isset($request->image) && !empty($request->image)){$news->image = $newsImagePath ?? null;}
             // Save the data
             $news->save();
+
+            // Dispatch the job
+            $data = [
+                'subject' => 'New News Article Published',
+                'message' => 'A new news article titled "' . $news->title . '" has been published.',
+            ];
+            NewsJob::dispatch($data);
 
             DB::commit();
             return redirect()->route('news.index')->with('success', 'data has been saved successfully.');
